@@ -1,0 +1,1 @@
+// Função map serve para iterar entre todos os elementos de uma coleção
