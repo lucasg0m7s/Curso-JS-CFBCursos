@@ -1,2 +1,2 @@
 # Curso JS CFBCursos
- Curso de Javascript do canal CFB Cursos. 
+ Aulas práticas do Curso de Javascript do canal CFB Cursos. 
