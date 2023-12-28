@@ -7,16 +7,19 @@ const dc6 = document.getElementById('c6')
 
 const arrayElementos = [dc1, dc2, dc3, dc4, dc5, dc6]
 
-// for(d of arrayElementos){
-//     d.innerHTML = "CFB CURSOS"
-// }
+// getElementsByTagName() retorna uma coleção de elementos, enquanto getElementById() retorna apenas um elemento
 
-arrayElementos.map((elemento)=>{
-    elemento.innerHTML = "CFB CURSOS"
-    console.log(elemento)
+const colecaoHTML = [...document.getElementsByTagName("div")] // Espalhando a coleção de elementos HTML em um array usando o operador Spread, para podermos usar os métodos da classe array
+
+console.log(colecaoHTML)
+
+colecaoHTML.map((e)=>{
+    console.log(e)
 })
 
 console.log(arrayElementos)
+console.log(colecaoHTML)
+
 
 
 
