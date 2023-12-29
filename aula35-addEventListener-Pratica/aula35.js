@@ -12,7 +12,6 @@ todosCursos.map((el)=>{
 
 btn.addEventListener("click", ()=>{
     const cursosSelecionados = [...document.querySelectorAll(".selecionado")]
-    const cursosDesselecionados = [...document.getElementsByClassName("curso c1")]
     console.log(cursosDesselecionados)
     cursosSelecionados.map((el)=>{
         caixa2.appendChild(el) // Cria um elemento filho dentro do chamador do metodo appendChild()
