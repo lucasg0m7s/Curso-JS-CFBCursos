@@ -1,17 +1,20 @@
-// const c1 = document.querySelector('#c1')
-const cursos = [...document.querySelectorAll('.curso')]
+const caixa1 = document.querySelector("#caixa1")
+const caixa2 = document.querySelector("#caixa2")
+const btn = document.querySelector("#btn_copiar")
+const todosCursos = [...document.querySelectorAll(".curso")]
 
-cursos.map((el)=>{
+todosCursos.map((el)=>{
     el.addEventListener("click", (evt)=>{
-        const el = evt.target
-        el.classList.add("destaque")
-        console.log(el.innerHTML + " foi clicado")
+        const curso = evt.target
+        curso.classList.toggle("selecionado")
     })
 })
 
-c1.addEventListener("click", (evt)=>{
-    const el = evt.target
-    el.classList.add("destaque")
+btn.addEventListener("click", ()=>{
+    const cursosSelecionados = [...document.querySelectorAll(".selecionado")]
+    const cursosDesselecionados = [...document.getElementsByClassName("curso c1")]
+    console.log(cursosDesselecionados)
+    cursosSelecionados.map((el)=>{
+        caixa2.appendChild(el) // Cria um elemento filho dentro do chamador do metodo appendChild()
+    })
 })
-
-
