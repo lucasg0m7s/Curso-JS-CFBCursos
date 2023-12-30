@@ -1,24 +1,16 @@
+// O método stopPropagation() para a propagação de um evento criado no elemento pai, em seus filhos.
+
 const caixa1 = document.querySelector("#caixa1")
-const caixa2 = document.querySelector("#caixa2")
-const btn_transferir = document.querySelector("#btn_transferir")
-const todosCursos = [...document.querySelectorAll(".curso")]
+const btn_c1 = document.querySelector("#c1")
+const cursos = [...document.querySelectorAll(".curso")]
 
-todosCursos.map((el)=>{
-    el.addEventListener("click", (evt)=>{
-        const curso = evt.target
-        curso.classList.toggle("selecionado")
+caixa1.addEventListener("click",(evt)=>{
+    console.log('clicou');
+})
+
+cursos.map((el)=>{
+    el.addEventListener("click",(evt)=>{
+        evt.stopPropagation()
     })
 })
 
-btn_transferir.addEventListener("click", ()=>{
-    const cursosSelecionados = [...document.querySelectorAll(".selecionado")]
-    const cursosNaoSelecionados = [...document.querySelectorAll(".curso:not(.selecionado)")]
-    
-    cursosSelecionados.map((el)=>{
-        caixa2.appendChild(el) // Cria um elemento filho dentro do chamador do metodo appendChild()
-    })
-
-    cursosNaoSelecionados.map((el)=>{
-        caixa1.appendChild(el) // Cria um elemento filho dentro do chamador do metodo appendChild()
-    })
-})
