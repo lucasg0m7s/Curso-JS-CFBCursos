@@ -1,16 +1,11 @@
-// O método stopPropagation() para a propagação de um evento criado no elemento pai, em seus filhos.
-
 const caixa1 = document.querySelector("#caixa1")
-const btn_c1 = document.querySelector("#c1")
-const cursos = [...document.querySelectorAll(".curso")]
+const btn_c = [...document.querySelectorAll(".curso")]
 
-caixa1.addEventListener("click",(evt)=>{
-    console.log('clicou');
-})
+// console.log(caixa1.firstElementChild)
+// console.log(caixa1.lastElementChild)
+// console.log(caixa1.children)
 
-cursos.map((el)=>{
-    el.addEventListener("click",(evt)=>{
-        evt.stopPropagation()
-    })
-})
+console.log(btn_c[0].getRootNode())
+console.log(btn_c[0].ownerDocument)
+
 
