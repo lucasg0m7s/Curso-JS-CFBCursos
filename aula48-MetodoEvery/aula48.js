@@ -1,20 +1,22 @@
-// Método Find() pesquisa um elemento em um array e retorna true se achar e caso não ache retorna undefined 
+// Retorna true ou false de acordo com a regra que passarmos ao método. Sua função é iterar por todos os elementos do array e verificar a condição, se todos corresponderem retorna true, se apenas um não corresponder retorna false
 
 const txt_pesquisar = document.getElementById("txt_pesquisar")
 const p_array = document.getElementById("array")
-const btnPesquisar = document.getElementById("btnPesquisar")
+const btnVerificar = document.getElementById("btnVerificar")
 const resultado = document.getElementById("resultado")
 
-const elementos_array = ["html", "css", "js"]
+const elementos_array = [21,25,19,20,19,18,22]
 p_array.innerHTML = "[" + elementos_array + "]"
 
-btnPesquisar.addEventListener("click", (evt)=>{
-    resultado.innerHTML = "Valor não encontrado"
-    const retorno = elementos_array.find((e, i)=>{
-        if(e == txt_pesquisar.value.toLowerCase()){
-            resultado.innerHTML = "Valor encontrado " + e + " na posição " + i
-            return e
+btnVerificar.addEventListener("click", (evt)=>{
+    const retorno = elementos_array.every((e, i)=>{
+        if(e < 18){
+            resultado.innerHTML = "Array não conforme na posição " + i
         }
+        return e >= 18
     })
-    console.log(retorno)
+    if(retorno){
+        resultado.innerHTML = "Ok"
+    }
+    console.log(ret)
 })
