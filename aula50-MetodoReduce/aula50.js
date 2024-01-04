@@ -1,22 +1,24 @@
-// Retorna true se um ou mais elementos coincidirem com a condição
+// Permite operar os elementos do array e obter um resultado com esses elementos
 
-const txt_pesquisar = document.getElementById("txt_pesquisar")
 const p_array = document.getElementById("array")
-const btnVerificar = document.getElementById("btnVerificar")
+const btnReduzir = document.getElementById("btnReduzir")
 const resultado = document.getElementById("resultado")
 
-const elementos_array = [16,12,10,17,15,13,19]
+const elementos_array = [1,2,3,4,5]
+let ant = []
+let atu = []
+let dobro = []
+
 p_array.innerHTML = "[" + elementos_array + "]"
 
-btnVerificar.addEventListener("click", (evt)=>{
-    const retorno = elementos_array.some((e, i)=>{
-        if(e < 18){
-            resultado.innerHTML = "Array não conforme na posição " + i
-        }
-        return e >= 18
+btnReduzir.addEventListener("click", (evt)=>{
+    dobro.push(elementos_array[0] * 2)
+    resultado.innerHTML = elementos_array.reduce((anterior, atual, posicao)=>{
+        ant.push(anterior) // Valor anterior é o resultado do retorno
+        atu.push(atual) // Valor atual é o elemento que esta sendo iterado
+        dobro.push(atual * 2)
+        return atual + anterior
     })
-    if(retorno){
-        resultado.innerHTML = "Ok"
-    }
-    console.log(ret)
+    resultado.innerHTML += "<br/>V.anterior: "+ant+"<br/>V.atual: "+atu+"<br/>Dobro: "+dobro
+
 })
