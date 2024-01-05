@@ -1,15 +1,19 @@
-const valores = [10,8,9,2]
-const it_valores = valores[Symbol.iterator]()
+const caixa = document.querySelector("#caixa")
 
-const texto = "Youtube"
-const it_texto = texto[Symbol.iterator]()
+let cores= ["Azul", "Verde", "Vermelho", ["claro", "escuro"]]
+let cursos = ["HTML", "CSS", "JS", cores]
 
-console.log(texto)
-console.log(it_texto.next())
-console.log(it_texto.next())
-console.log(it_texto.next())
-console.log(it_texto.next())
-console.log(it_texto.next())
-console.log(it_texto.next())
-console.log(it_texto.next())
-console.log(it_texto.next())
+// cursos[0] = 2
+
+// cursos.push("C++") // Adicioona elementos no final do array
+// cursos.unshift("Python") // Adicioona elementos no começo do array
+// cursos.pop() // Retira elementos no final do array
+// cursos.shift() // Retira elementos no começo do array
+
+console.log(cursos[3][3][1])
+
+cursos.map((el)=>{
+    let p = document.createElement("p")
+    p.innerHTML = el
+    caixa.appendChild(p)
+})
