@@ -1,20 +1,14 @@
-// Template Strings - Forma mais prática de escrever strings com variáveis
+class Pessoa{
+    constructor(pnome){
+        this.nome = pnome
+    }
+}
 
-const caixa = document.querySelector("#caixa")
-
-carros = ["Polo", "Golf", "T-Cross", "HRV"]
-
-let ul = `<ul>`
-carros.map((el)=>{
-    ul+=`<li>${el}</li>`
-})
-ul += `</ul>`
-
-// const curso = "Js"
-// const canal = "CFB Cursos"
-// const frase = `Este é o<br> curso de ${curso} do<br> canal ${canal}`
-
-// console.log(frase)
+let p1 = new Pessoa("Bruno")
+let p2 = new Pessoa("Lucas")
+let p3 = new Pessoa("Miguel")
 
 
-caixa.innerHTML = ul
+console.log(p1.nome)
+console.log(p2.nome)
+console.log(p3.nome)
