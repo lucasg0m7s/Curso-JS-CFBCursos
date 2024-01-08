@@ -1,9 +1,20 @@
-// Template Strings
+// Template Strings - Forma mais prática de escrever strings com variáveis
 
 const caixa = document.querySelector("#caixa")
 
-const curso = "Js"
-const canal = "CFB Cursos"
-const frase = "Este é o curso de " + curso + " do canal " + canal
+carros = ["Polo", "Golf", "T-Cross", "HRV"]
 
-caixa.innerHTML = frase
+let ul = `<ul>`
+carros.map((el)=>{
+    ul+=`<li>${el}</li>`
+})
+ul += `</ul>`
+
+// const curso = "Js"
+// const canal = "CFB Cursos"
+// const frase = `Este é o<br> curso de ${curso} do<br> canal ${canal}`
+
+// console.log(frase)
+
+
+caixa.innerHTML = ul
