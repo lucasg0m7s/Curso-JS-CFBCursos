@@ -1,4 +1,59 @@
-// Herança acontece quando uma classe herda outra classe, obtendo os métodos e propriedades da classe pai
+const f_tipoMilitar = document.getElementById("f_tipoMilitar")
+const f_tipoNormal = document.getElementById("f_tipoNormal")
+const f_blindagem = document.getElementById("f_blindagem")
+const f_municao = document.getElementById("f_municao")
+const f_nome = document.getElementById("f_nome")
+const f_portas = document.getElementById("f_portas")
+const carros = document.getElementById("carros")
+const btn_addCarro = document.getElementById("btn_addCarro")
+
+let a_carros = []
+
+f_tipoMilitar.addEventListener("click",()=>{
+    f_nome.value=""
+    f_portas.value = 0
+    f_blindagem.value = 0
+    f_municao.value = 0
+    console.log("teste")
+    f_blindagem.removeAttribute("disabled")
+    f_municao.removeAttribute("disabled")
+})
+
+f_tipoNormal.addEventListener("click",()=>{
+    f_nome.value=""
+    f_portas.value = 0
+    f_blindagem.value = 0
+    f_municao.value = 0
+    f_blindagem.setAttribute("disabled", "disabled")
+    f_municao.setAttribute("disabled", "disabled")
+    console.log("teste")
+})
+
+const gerenciarExibicaoCarros = ()=>{
+    carros.innerHTML = ""
+    a_carros.forEach((c)=>{
+        const div = document.createElement("div")
+        div.setAttribute("class", "carro")
+        div.innerHTML = `Nome: ${c.nome}<br/>`
+        div.innerHTML += `Portas: ${c.portas}<br/>`
+        div.innerHTML += `Cor: ${c.cor}<br/>`
+        div.innerHTML += `Blindagem: ${c.blindagem}<br/>`
+        div.innerHTML += `Munição: ${c.municao}<br/>`
+
+        carros.appendChild(div)
+    }) 
+}
+
+btn_addCarro.addEventListener("click",()=>{
+    if(f_tipoNormal.checked){
+        const c = new Carro(f_nome.value, f_portas.value)
+        a_carros.push(c)
+    }else{
+        const c = new Militar(f_nome.value, f_portas.value, f_blindagem.value, f_municao.value)
+        a_carros.push(c)
+    }
+    gerenciarExibicaoCarros()
+})
 
 class Carro{ // Classe Pai
     constructor(nome, portas){
