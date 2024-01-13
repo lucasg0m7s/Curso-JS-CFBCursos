@@ -1,19 +1,27 @@
-const pessoa = {
-    nome:"Bruno",
-    canal: "CFB Cursos",
-    curso: "JavaScript",
-    aulas:{
-        aula01:"Introdução",
-        aula02:"Variaveis",
-        aula03:"Condicional"
+// Um membro static pertence a classe e não à uma instãncia da classe
+
+class Npc{
+    static alerta = false
+    constructor(energia){
+        this.energia = energia
+    }
+
+    info = function(){
+        console.log(`Energia: ${this.energia}`)
+        console.log(`Alerta: ${Npc.alerta ? "Sim" : "Não"}`)
+        console.log(`-----------------------------`)
+    }
+
+    static Alertar = function(){
+        Npc.alerta = true
     }
 }
 
-const s_json_pessoa = JSON.stringify(pessoa) // Converte um objeto para string JSON
-const o_json_pessoa = JSON.parse(s_json_pessoa) // Converte uma string JSON em objeto 
+const npc1 = new Npc(100)
+const npc2 = new Npc(80)
+const npc3 = new Npc(30)
 
+Npc.Alertar() 
 
-console.log(pessoa)
-console.log(s_json_pessoa)
-console.log(o_json_pessoa)
-
+npc1.info()
+npc2.info()
