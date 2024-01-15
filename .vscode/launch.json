@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\aula27-FuncoesGeradoras\\aula27.js"
+            "program": "${workspaceFolder}\\aula69-Abstract\\aula69.js"
         }
     ]
 }

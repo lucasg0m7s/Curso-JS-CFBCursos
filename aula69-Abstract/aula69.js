@@ -1,7 +1,28 @@
-// O polimorfismo é a capacidade de um objeto responder de forma diferente a um mesmo método, dependendo do contexto em que é chamado. 
+// Classes abstratas não podem ser instânciadas, apenas herdadas por outras classes
 
-class Carro{
+class CarroPadrao{
+    constructor(){
+        if(this.constructor === CarroPadrao){
+            throw new TypeError("Esta classe não pode ser instânciada")
+        }
+        if(this.ligar === undefined){
+            throw new TypeError("É obrigatório implementar o método ligar")
+        }
+        if(this.desligar === undefined){
+            throw new TypeError("É obrigatório implementar o método desligar")
+        }
+            this.rodas = 4
+            this.portas = 4
+            this.ligado = false
+        
+        
+    }
+
+}
+
+class Carro extends CarroPadrao{
     constructor(tipo, estagioTurbo){
+        super()
         this.turbo = new Turbo(estagioTurbo)
         if(tipo == 1){
             this.velMax = 120 
@@ -19,7 +40,18 @@ class Carro{
         console.log(this.nome)
         console.log(this.velMax)
         console.log(this.turbo)
+        console.log(this.rodas)
+        console.log(this.portas)
+        console.log(this.ligado)
         console.log("--------------------------------")
+    }
+    
+    ligar(){
+        this.ligado = true
+    }
+
+    desligar(){
+        this.ligado = false
     }
 }
 
