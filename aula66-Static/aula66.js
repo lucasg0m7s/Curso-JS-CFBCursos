@@ -1,4 +1,4 @@
-// Um membro static pertence a classe e não à uma instãncia da classe
+// Um membro static pertence a classe e não à uma instância da classe
 
 class Npc{
     static alerta = false
