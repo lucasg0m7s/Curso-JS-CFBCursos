@@ -2,9 +2,10 @@ const teclasNum = [...document.querySelectorAll(".num")]
 const teclasOp = [...document.querySelectorAll(".op")]
 const teclaRes = document.querySelector(".res")
 const display = document.querySelector("#display")
-const tOn = document.getElementById("tOn")
+const tCopy = document.getElementById("tCopy")
 const tLimpar = document.getElementById("tLimpar")
 const tIgual = document.getElementById("tIgual")
+const teste = document.getElementById("teste")
 
 let sinal = false
 let decimal = false
@@ -63,4 +64,11 @@ tIgual.addEventListener("click",()=>{
     decimal = false
     const res = eval(display.innerHTML)
     display.innerHTML = res
+})
+
+tCopy.addEventListener("click",()=>{
+    navigator.clipboard.writeText(display.innerHTML)
+    // teste.select()
+    // teste.setSelectionRange(0,99999) // Mobile
+    // navigator.clipboard.writeText(teste.value)
 })
