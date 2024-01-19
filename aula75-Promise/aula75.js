@@ -1,87 +1,32 @@
-const teclasNum = [...document.querySelectorAll(".num")] 
-const teclasOp = [...document.querySelectorAll(".op")]
-const teclaRes = document.querySelector(".res")
-const display = document.querySelector("#display")
-const tCopy = document.getElementById("tCopy")
-const tLimpar = document.getElementById("tLimpar")
-const tIgual = document.getElementById("tIgual")
-const teste = document.getElementById("teste")
-const calc_aba = document.getElementById("calc_aba")
-const calc = document.getElementById("calc")
-const img_aba_calc = document.getElementById("img_aba_calc")
+// Promise é uma promessa de execução que vai retornar algo que estiver pronto, enquanto não estiver a aplicação continua a trabalhar
 
-let sinal = false
-let decimal = false
+const numero = document.getElementById("numero")
 
-teclasNum.forEach((el)=>{
-    el.addEventListener("click",(evt)=>{
-        sinal = false
-        if(evt.target.innerHTML == ",")
-        {
-            if(!decimal){
-                decimal = true
-                if(display.innerHTML == "0")
-                {
-                    display.innerHTML = "0,"
-                }
-                else
-                {
-                    display.innerHTML += evt.target.innerHTML
-                }
-            }
+let promise = new Promise((resolve, reject)=>{
+    let resultado = true
+    let tempo = 3000
+
+    setTimeout(()=>{
+        if(resultado){
+            resolve("Deu tudo certo")
         }
         else
         {
-            if(display.innerHTML == "0"){
-                display.innerHTML = ""
-            }
-            display.innerHTML += evt.target.innerHTML
+            reject("Deu tudo errado")
         }
-    })
+    },tempo)
 })
 
-teclasOp.forEach((el)=>{
-    el.addEventListener("click",(evt)=>{
-        if(!sinal){
-            sinal = true 
-            if(display.innerHTML == "0"){
-                display.innerHTML = ""
-            }
-            if(evt.target.innerHTML == "X"){
-                display.innerHTML += "*"
-            }else{
-                display.innerHTML += evt.target.innerHTML
-            }
-        }
-    })
+promise.then((retorno)=>{
+    numero.innerHTML = retorno
+    numero.classList.remove("erro")
+    numero.classList.add("ok")
 })
 
-tLimpar.addEventListener("click",()=>{
-    sinal = false
-    decimal = false
-    display.innerHTML = 0
+promise.catch((retorno)=>{
+    numero.innerHTML = retorno
+    numero.classList.add("erro")
+    numero.classList.remove("ok")
 })
 
-tIgual.addEventListener("click",()=>{
-    sinal = false
-    decimal = false
-    const res = eval(display.innerHTML)
-    display.innerHTML = res
-})
-
-tCopy.addEventListener("click",()=>{
-    navigator.clipboard.writeText(display.innerHTML)
-    // teste.select()
-    // teste.setSelectionRange(0,99999) // Mobile
-    // navigator.clipboard.writeText(teste.value)
-})
-
-calc_aba.addEventListener("click",(evt)=>{
-    calc.classList.toggle("calc_exibir")
-    console.log(evt.target)
-    if(calc.classList.contains("calc_exibir")){
-        img_aba_calc.setAttribute("src", "arrow_left.svg")
-    }else{
-        img_aba_calc.setAttribute("src", "arrow_right.svg")
-    }
-})
+numero.innerHTML = "Processando..."
