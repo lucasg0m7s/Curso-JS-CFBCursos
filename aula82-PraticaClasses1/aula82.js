@@ -1,15 +1,10 @@
-const olhos = [...document.getElementsByClassName("olho")]
+const palco = document.getElementById("palco")
+const num_objetos = document.getElementById("num_objetos")
+const txt_qtde = document.getElementById("txt_qtde")
+const btn_add = document.getElementById("btn_add")
+const btn_remover = document.getElementById("btn_remover")
 
-let posx_mouse = 0
-let posy_mouse = 0
-
-window.addEventListener("mousemove",(evt)=>{
-    posx_mouse = evt.clientX
-    posy_mouse = evt.clientY
-
-    const rot = Math.atan2(posy_mouse, posx_mouse)*180/Math.PI
-
-    olhos.forEach((o)=>{
-        o.style.transform = "rotate("+rot+"deg)"
-    })
-})
+let larguraPalco = palco.offsetWidth
+let alturaPalco = palco.offsetHeight
+let bolas=[]
+let numBola = 0
