@@ -17,8 +17,8 @@ class Bola{
         this.b = Math.floor(Math.random()*255)
         this.px = Math.floor(Math.random()*(larguraPalco - this.tam))
         this.py = Math.floor(Math.random()*(alturaPalco - this.tam))
-        this.velx = Math.floor(Math.random()*2) + 0,5
-        this.vely = Math.floor(Math.random()*2) + 0,5
+        this.velx = Math.floor(Math.random()*2) + 0.5
+        this.vely = Math.floor(Math.random()*2) + 0.5
         this.dirx = Math.floor(Math.random()*10) > 5 ? 1 : -1
         this.diry = Math.floor(Math.random()*10) > 5 ? 1 : -1
         this.palco = palco
