@@ -1,24 +1,47 @@
-const btn_imp = document.getElementById("btn_imp");
+const objetos = document.getElementById("objetos");
 
-btn_imp.addEventListener("click", (evt)=>{
-    const conteudo = document.getElementById("tabela").innerHTML;
-    
-    let estilo = "<style>";
-    estilo += "table {width: 100%; font:25px Calibri;}";
-    estilo += "table, th, td {border: solid 2px #888; border-collapse: collapse;";
-    estilo += "padding: 4px 8px; text-align: center;}";
-    estilo += "</style>";
+const computador = {
+    cpu: "i9",
+    ram: "64gb",
+    hd: "2tb",
 
-    const win = window.open('', '', 'height = 700, width = 700');
-    
-    win.document.write('<html><head>');
-    win.document.write('<title>CFB Cursos</title>');
-    win.document.write(estilo);
-    win.document.write('</head>');
-    win.document.write('<body>');
-    win.document.write(conteudo);
-    win.document.write('</body></html>');
+    info: function(){
+        console.log(`CPU: ${this.cpu}`)
+        console.log(`RAM: ${this.ram}`)
+        console.log(`HD: ${this.hd}`)
+    }
+}
 
-    win.print();
-    win.close()
-})
+computador["monitor"] = "22pol"
+computador.placaVideo = "rtx"
+
+console.log(computador['monitor'])
+
+const computadores = [
+    {
+        cpu: "i9",
+        ram: "64gb",
+        hd: "2tb"
+    }, 
+    {
+        cpu: "i5",
+        ram: "32gb",
+        hd: "2tb"
+    },
+    {
+        cpu: "i7",
+        ram: "16gb",
+        hd: "2tb"
+    }
+]
+
+computadores.forEach((element) => {
+    const div = document.createElement("div")
+    div.innerHTML = element.cpu + "<br/>" + element.ram + "<br/>" + element.hd
+    div.setAttribute("class", "computador")
+    objetos.appendChild(div)
+});
+
+// computador.info()
+// console.log(computadores)
+// objetos.innerHTML = JSON.stringify(computadores)
