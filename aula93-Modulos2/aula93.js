@@ -1,7 +1,6 @@
-import { cursos } from "./cursos.js";
-import { carros } from "./cursos.js";
+import getTodosCursos, {cursos, getCurso} from "./cursos2.js";
 
-console.log("servidor rodando")
 console.log(cursos)
-console.log(carros)
+console.log(getTodosCursos())
+console.log(getCurso(1))
 
