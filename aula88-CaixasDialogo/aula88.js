@@ -1,13 +1,20 @@
-const url = document.getElementById("url")
-const btn_url = document.getElementById("btn_url")
+const btn_alert = document.getElementById("btn_alert")
+const btn_confirm = document.getElementById("btn_confirm")
+const btn_prompt = document.getElementById("btn_prompt")
 
-btn_url.addEventListener("click", (evt)=>{
-    // window.location = "https://google.com"
-    // window.location.replace("https://google.com.BR") // Deleta a URL corrente do histórico
-    // window.location.assign("https://google.com.BR") // Não deleta a URL corrente do histórico
-    // window.location.reload()
-    // window.history.back()
-    // window.history.forward()
-    // window.history.go(1)
-    window.location = url.value
+btn_alert.addEventListener("click", (evt)=>{
+    alert("Olá como você está?")
+})
+
+btn_confirm.addEventListener("click", (evt)=>{
+    confirm("Você está aprendendo muito?") ? console.log("Botão OK pressionado") : console.log("Botão Cancelar pressionado")
+})
+
+btn_prompt.addEventListener("click", (evt)=>{
+    const nome = prompt("Digite seu nome:", "Digite seu nome aqui")
+    if(nome == null){
+        console.log("Botão CANCELAR pressionado")
+    }else{
+        console.log("Nome digitado: " + nome)
+    }
 })
