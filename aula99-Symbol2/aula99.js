@@ -1,12 +1,22 @@
-const s1 = Symbol()
-const s2 = Symbol()
-const s3 = Symbol.for("bruno")
-const s4 = Symbol.for("canal")
+class Jogador{
+    constructor(nome){
+        this.id = Symbol()
+        this.nome = nome
+    }
+}
 
-console.log(s1)
-console.log(s2)
+let jogadores = [new Jogador("j1"), new Jogador("j2"), new Jogador("j3"), new Jogador("j4"), new Jogador("j1"), new Jogador("j3")]
 
-console.log(s3 == s4)
+let s = []
 
-console.log(Symbol.keyFor(s3))
+let s_jogadores = jogadores.filter((j)=>{
+    return j.nome == "j1"
+})
 
+s = s_jogadores.map((j)=>{
+    return j.id
+})
+
+console.log(jogadores)
+console.log(s)
+console.log(s_jogadores)
