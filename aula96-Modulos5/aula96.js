@@ -1,5 +1,14 @@
-import c from './cursos5.js'
+import c from './contatos.js'
 
-c.addCurso("Photoshop")
-c.apagarCursos()
-console.log(c.getTodosCursos())
+const listaContatos = document.getElementById("listaContatos")
+const btn_gravar = document.getElementById("btn_gravar")
+
+btn_gravar.addEventListener("click", ()=>{
+    const cont = {
+        nome: document.getElementById("f_nome").value,
+        telefone: document.getElementById("f_telefone").value,
+        email: document.getElementById("f_email").value
+    }
+    c.addContato(cont, listaContatos)
+    console.log(c.getTodosContatos())
+})
