@@ -13,4 +13,6 @@ function getCurso(i_curso){
     return cursos[i_curso]
 }
 
+// export default getTodosCursos
+
 export {cursos, getCurso}
