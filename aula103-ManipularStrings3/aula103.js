@@ -1,5 +1,6 @@
 let nome = new String("Bruno Pinho Campos")
 let nome2 = new String("Bruno Pinho Campos")
+let nome3 = new String(nome.toUpperCase())
 let canal = new String("CFBCursos")
 
 console.log(nome)
@@ -24,3 +25,18 @@ console.log(nome.slice(6, 11)) // Retorna apenas a parte da string dentre as pos
 
 let arr_nome = nome.split(" ") // Retorna um array de strings. O método separa a string em um array de strings de acordo com o caractere indicado
 console.log(arr_nome)
+
+let parte = nome.substring(6, 11) // Retorna apenas a parte da string dentre as posições indicadas
+console.log(parte)
+
+let parte2 = nome.substr(6, 5) // // Retorna apenas a parte da string dentre a posição inicial e o tamanho a partir dela
+console.log(parte2)
+
+console.log(nome.toUpperCase()) // Transforma tudo em maiúsculo 
+console.log(nome3.toLowerCase()) // Transforma tudo em minúsculo
+
+console.log(nome.valueOf()) // Retorna somente o valor da string, não o objeto
+
+let num = 10
+num = num.toString()
+console.log(typeof(num)) // Converte qualquer valor em string
