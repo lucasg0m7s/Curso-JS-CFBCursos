@@ -1,20 +1,14 @@
-const nome = Symbol("nome")
-const numero = Symbol("numero")
-const corUniforme = Symbol("cor do Uniforme")
+let nome = new String("Bruno Pinho Campos")
+let canal = new String("CFBCursos")
 
-const Jogador = {
-    nome: "j1"
-}
+console.log(nome)
 
-Jogador[numero] = 10
-Jogador[corUniforme] = "Amarelo"
+console.log(nome.charAt(0)) // Retorna o caractere de acordo com a posição indicada
 
-for(p in Jogador){
-    console.log(p)
-}
+console.log(nome.charCodeAt(0)) // Retorna código do caractere de acordo com a posição indicada
 
-console.log(Jogador)
-console.log(Jogador.nome)
-console.log(Jogador[numero])
-console.log(Jogador[corUniforme])
+console.log(nome.concat(canal)) // Retorna a concatenação de duas strings
 
+console.log(nome.indexOf("o")) // Retorna a posição do primeiro caractere indicado. Caso não encontre, retorna -1.
+
+console.log(nome.lastIndexOf("o")) // Retorna a posição do ultimo caractere indicado. Caso não encontre, retorna -1.
