@@ -26,7 +26,7 @@ button{
 .carro{
     position: relative;
     background-color: #f00;
-    width: 100px;
+    /* width: 100px; */
     height: 40px;
     left: 150px;
 }
