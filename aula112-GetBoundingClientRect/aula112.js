@@ -1,50 +1,22 @@
-const carro = document.getElementById("carro")
-const btn_rodar = document.getElementById("btn_rodar")
-const btn_parar = document.getElementById("btn_parar")
+const q1 = document.getElementById("q1")
+const q2 = document.getElementById("q2")
+const posx = document.getElementById("posx")
+const posy = document.getElementById("posy")
+const largura = document.getElementById("largura")
+const altura = document.getElementById("altura")
 
-const init = () => {
-    carro.style = "position: relative; left: 0px; width: 100px"
-    tamMax = window.innerWidth - parseInt(carro.style.width)
+const info = (el)=>{
+    let DOMRECT = el.getBoundingClientRect()
+    posx.innerHTML = `posx: ${DOMRECT.x}`
+    posy.innerHTML = `posy: ${DOMRECT.y}`
+    largura.innerHTML = `largura: ${DOMRECT.width}`
+    altura.innerHTML = `altura: ${DOMRECT.height}`
 }
 
-let anima = null
-let tamMax = null
-let batida = false
-
-const move = () => {
-    if(!batida){
-        if (parseInt(carro.style.left) <= tamMax) {
-            carro.style.left = parseInt(carro.style.left) + (10 * 1) + "px"
-            anima = setTimeout(move, 20, 1)
-        }else{
-            batida = true
-            anima = setTimeout(move, 20, 1)
-        }
-    }
-    else
-    {
-        if(parseInt(carro.style.left) >= 0){
-            carro.style.left = parseInt(carro.style.left) + (10 * -1) + "px"
-            anima = setTimeout(move, 20, -1)
-        }
-        else{
-            batida = false
-            anima = setTimeout(move, 20, 1)
-        }
-    }
-}
-
-btn_parar.addEventListener("click", () => {
-    clearTimeout(anima)
+q1.addEventListener("click", (evt)=>{
+    info(evt.target)
 })
 
-btn_rodar.addEventListener("click", () => {
-    move()
-})
-
-
-// window.onload = init
-window.addEventListener("load", init())
-window.addEventListener("resize", () => {
-    tamMax = window.innerWidth - parseInt(carro.style.width)
+q2.addEventListener("click", (evt)=>{
+    info(evt.target)
 })

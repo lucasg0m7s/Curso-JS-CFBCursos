@@ -5,28 +5,26 @@
     box-sizing: border-box;
 }
 
-.painel{
-    position: relative;
+.info{
     display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #eee;
+    justify-content: space-around;
 }
 
-button{
-    width: 150px;
-    height: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 10px;
-    background-color: #ccc;
+.quadrado{
+    position: absolute;
+    display: flex;
+    width: 100px;
+    height: 100px;
 }
 
-.carro{
-    position: relative;
+#q1{
     background-color: #f00;
-    /* width: 100px; */
-    height: 40px;
-    left: 150px;
+    top: 20px;
+    left: 100px;
+}
+
+#q2{
+    background-color: #00f;
+    top: 150px;
+    left: 300px;
 }
