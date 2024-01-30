@@ -5,6 +5,12 @@ const posy = document.getElementById("posy")
 const largura = document.getElementById("largura")
 const altura = document.getElementById("altura")
 
+q1.accessKey = "b"
+q2.accessKey = "n"
+
+console.log("q1: " + q1.accessKey)
+console.log("q2: " + q2.accessKey)
+
 const info = (el)=>{
     let DOMRECT = el.getBoundingClientRect()
     posx.innerHTML = `posx: ${DOMRECT.x}`
