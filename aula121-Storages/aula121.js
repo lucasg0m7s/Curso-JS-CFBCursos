@@ -1,35 +1,25 @@
-const f_nome = document.querySelector("#f_nome")
-const f_nota = document.querySelector("#f_nota")
-const f_msg = document.querySelector("#f_msg")
+const f_texto = document.getElementById("f_texto")
+const p_texto = document.getElementById("p_texto")
+const btn_texto = document.getElementById("btn_texto")
 
-document.querySelector("#btn_validar").addEventListener("click", (evt)=>{
-    let msg = null
-
-    if(f_nota.validity.valueMissing){
-        msg = "Poxa, este campo é obrigatório"
-    }else if(f_nota.validity.rangeOverflow){
-        msg = "Nossa, que nota alta você digitou"
-    }else if(f_nota.validity.rangeUnderflow){
-        msg = "Credo, que nota baixa você digitou"
-    }
-
-    // f_nota.reportValidity()
-    f_msg.innerHTML = msg
-    evt.preventDefault()
+btn_texto.addEventListener("click", evt => {
+    
 })
 
-// document.querySelector("#btn_validar").addEventListener("click", (evt)=>{
-//     let estadoValidacao = f_nota.validity
+let num = 10
+let curso = "Javascript"
+// window.localStorage.setItem("numero", num)
+// localStorage.setItem("nome", "Bruno")
+// localStorage.setItem("canal", "CFBCursos")
+// localStorage.setItem("curso", curso)
+// alert(localStorage.length)
+// alert(localStorage.getItem(localStorage.key(0)))
+// alert(localStorage.getItem("nome"))
+// alert(localStorage.getItem("canal"))
+// alert(localStorage.getItem("curso"))
+localStorage.clear()
 
-//     if(estadoValidacao.valueMissing){
-//         f_nota.setCustomValidity("Poxa, este campo é obrigatório")
-//     }else if(estadoValidacao.rangeOverflow){
-//         f_nota.setCustomValidity("Nossa, que nota alta você digitou")
-//     }else if(estadoValidacao.rangeUnderflow){
-//         f_nota.setCustomValidity("Credo, que nota baixa você digitou")
-//     }
+sessionStorage.setItem("nome", "Bruno")
+sessionStorage.setItem("canal", "CFBCursos")
+sessionStorage.setItem("curso", curso)
 
-//     f_nota.reportValidity()
-//     // f_msg.innerHTML = f_nota.validationMessage
-//     evt.preventDefault()
-// })
