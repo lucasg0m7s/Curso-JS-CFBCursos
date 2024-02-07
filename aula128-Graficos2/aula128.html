@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Aula 128</title>
-        <link rel="stylesheet" type="text/css" href="estilos128.css">
-    </head>
-    <body>
-      <p id="texto"></p>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 128</title>
+    <link rel="stylesheet" type="text/css" href="estilos128.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div style="width: 300px; height: 300px;">
+      <canvas id="grafico1" style="width: 300px; height: 300px;"></canvas>
+    </div>
+
+    <script>
+      const ctx = document.getElementById('grafico1');
+
+      let labelsX = ["Disponibilidade", "Qualidade", "Performance"]
+      let valores = [0,0,0]
+
+      let grafico1 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labelsX,
+          datasets: [{
+            label: '# of Votes',
+            data: valores,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
       
-      <script src="aula128.js"></script>
-    </body>
+      const obterDados = ()=>{
+        const endpoint = "https://74290e05-2c18-40fb-b1dd-9a7f10fbab76-00-1ywk1o9j8s8jf.picard.replit.dev/"
+
+        fetch(endpoint, {
+          method: "get"
+        })
+        .then(res => res.json())
+        .then(res => {
+          valores[0] = res.disponibilidade
+          valores[1] = res.performance
+          valores[2] = res.qualidade
+          grafico1.update()
+        })
+        .catch(erro => {
+          console.log("Erro: " + erro)
+        })
+      }
+      
+      let intervalo = setInterval(obterDados, 3000)
+
+    </script>
+  </body>
 </html>
